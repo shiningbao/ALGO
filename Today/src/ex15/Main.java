@@ -30,7 +30,7 @@ class Solution {
                 foundNonZero = true; // 0이 아닌 문자를 찾았음을 표시
             }
         }
-        return answer;
-        // return ""+Integer.parseInt(n_str); 이걸 왜 생각 못했을까...
+        return answer; // 9.09ms~18.07ms
+        // return ""+Integer.parseInt(n_str); 이걸 왜 생각 못했을까... 6.38ms~10.39ms
     }
 }
