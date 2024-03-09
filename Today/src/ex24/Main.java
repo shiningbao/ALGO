@@ -1,6 +1,7 @@
 package ex24;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /*	배열 만들기3
 	정수 배열 arr와 2개의 구간이 담긴 배열 intervals가 주어집니다.
@@ -13,17 +14,35 @@ public class Main {
 		int[] result = {};
 		Solution sol = new Solution();
 		result = sol.solution(new int[] {1, 2, 3, 4, 5}, new int[][] {{1, 3}, {0, 4}});
-		System.out.println("[2, 3, 4, 1, 2, 3, 4, 5]=="+result);
+		System.out.println("[2, 3, 4, 1, 2, 3, 4, 5]=="+Arrays.toString(result));
 	}
 }
 
 class Solution {
-    public int[] solution(int[] arr, int[][] intervals) {
+    public int[] solution(int[] arr, int[][] intervals) { // 0.30ms ~ 12.43ms
     	ArrayList<Integer> array = new ArrayList<>();
-        int[] answer = new int[array.size()];
         for (int i = intervals[0][0]; i <= intervals[0][1]; i++) {
-			answer[i] = arr[i];
+        	array.add(arr[i]);
 		}
+        
+        for (int i = intervals[1][0]; i <= intervals[1][1]; i++) {
+            array.add(arr[i]);
+        }
+        
+        int[] answer = new int[array.size()];
+        for (int i = 0; i < array.size(); i++) {
+            answer[i] = array.get(i);
+        }
         return answer;
+        /* 2.71ms ~ 12.28ms
+        ArrayList<Integer> array = new ArrayList<>();
+        for (int[] interval : intervals) {
+            for (int i = interval[0]; i <= interval[1]; i++) {
+                array.add(arr[i]);
+            }
+        }
+
+        return array.stream().mapToInt(Integer::intValue).toArray();
+        */
     }
 }
