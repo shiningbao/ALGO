@@ -19,9 +19,13 @@ public class Main {
 }
 
 class Solution {
-    public int solution(int a, int d, boolean[] included) { 
+    public int solution(int a, int d, boolean[] included) { // 0.01ms ~ 0.05ms
         int answer = 0;
-        
+        for (int i = 0; i < included.length; i++) {
+            if (included[i]) {
+                answer += a + (i * d);
+            }
+        }
         return answer;
     }
 }
