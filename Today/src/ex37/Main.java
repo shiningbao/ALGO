@@ -16,16 +16,22 @@ public class Main {
 }
 
 class Solution {
-    public String solution(String my_string, int[] indices) {
-        String answer = "";
+    public String solution(String my_string, int[] indices) { // 0.03ms ~ 0.11ms
+    	StringBuilder sb = new StringBuilder();
         
-        for (int i = 0; i < my_string.length(); i++) {
-			for (int j = 0; j < indices.length; j++) {
-				if(i!=indices[j]) {
-					answer = my_string; 
-				}
-			}
-		}
-        return answer;
+    	for (int i = 0; i < my_string.length(); i++) {
+            boolean found = false;
+            for (int index : indices) {
+                if (i == index) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                sb.append(my_string.charAt(i));
+            }
+        }
+        
+        return sb.toString();
     }
 }
