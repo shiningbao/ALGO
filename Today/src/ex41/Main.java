@@ -20,22 +20,28 @@ public class Main {
 }
 
 class Solution {
-    public int[] solution(int[] arr, boolean[] flag) {
-    	ArrayList<Integer> x = new ArrayList<Integer>();
-        
-        for (int i = 0; i < flag.length; i++) {
-			if(flag[i]==true) {
-				x.add(arr[i]);
-				x.add(arr[i]);
-			}else {
-				
-			}
-		}
-        
-        int[] answer = new int[x.size()];
-        for (int i = 0; i < answer.length; i++) {
-			answer[i] = x.get(i);
-		}
+    public int[] solution(int[] arr, boolean[] flag) { // 0.03ms ~ 0.55ms
+    	ArrayList<Integer> X = new ArrayList<>();
+
+        for (int i = 0; i < arr.length; i++) {
+            if (flag[i]) {
+                for (int j = 0; j < arr[i] * 2; j++) {
+                    X.add(arr[i]);
+                }
+            } else {
+                if (X.size() >= arr[i]) {
+                    for (int j = 0; j < arr[i]; j++) {
+                        X.remove(X.size() - 1);
+                    }
+                }
+            }
+        }
+
+        int[] answer = new int[X.size()];
+        for (int i = 0; i < X.size(); i++) {
+            answer[i] = X.get(i);
+        }
+
         return answer;
     }
 }
