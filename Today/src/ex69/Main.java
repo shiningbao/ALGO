@@ -29,27 +29,27 @@ public class Main {
 }
 
 class Solution {
-    public String solution(String code) {
-    	  StringBuilder ret = new StringBuilder();
+    public String solution(String code) { // 0.02ms ~ 9.94ms
+    	  StringBuilder answer = new StringBuilder();
           int mode = 0;
           
-          for (int i = 0; i < code.length(); i++) {
+          for (int i = 0; i <= code.length()-1; i++) {
               char c = code.charAt(i);
               if (c == '1') {
-                  mode = 1 - mode;
+                  mode = 1-mode; // 토글
               } else {
                   if (mode == 0 && i % 2 == 0) {
-                      ret.append(c);
+                	  answer.append(c);
                   } else if (mode == 1 && i % 2 == 1) {
-                      ret.append(c);
+                	  answer.append(c);
                   }
               }
           }
           
-          if (ret.length() == 0) {
+          if (answer.length() == 0) {
               return "EMPTY";
           } else {
-              return ret.toString();
+              return answer.toString();
           }
     }
 }
