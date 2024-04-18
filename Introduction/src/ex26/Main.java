@@ -1,6 +1,4 @@
-package ex25;
-
-import java.util.Arrays;
+package ex26;
 
 /*	컨트롤 제트
 	숫자와 "Z"가 공백으로 구분되어 담긴 문자열이 주어집니다. 문자열에 있는 숫자를 차례대로 더하려고 합니다. 이 때 "Z"가 나오면 바로 전에 더했던 숫자를 뺀다는 뜻입니다. 
@@ -53,6 +51,21 @@ class Solution {
                 answer += Integer.parseInt(sArr[i]);  
             }
         }
+        
+        /* 스택 활용해서 풀기 0.20ms ~ 1.49ms
+        	Stack<Integer> stack = new Stack<>();
+
+	        for (String w : s.split(" ")) {
+	            if (w.equals("Z")) {
+	                stack.pop();
+	            } else {
+	                stack.push(Integer.parseInt(w));
+	            }
+	        }
+	        for (int i : stack) {
+	            answer += i;
+	        }
+         */
         return answer;
     }
 }
