@@ -29,13 +29,11 @@ class Solution {
     public int[] solution(int n) { // 0.02ms ~ 0.28ms
     	List<Integer> list = new ArrayList<>();
     	
-    	for (int i = 2; i <= n; i++) {
-    		
+    	for (int i = 2; i <= n; i++) {  		
 				while(n%i == 0) {
 					n /= i;
 				}
-				list.add(i);
-			
+				list.add(i);			
 		}
     	
         int[] answer = new int[list.size()];
