@@ -33,7 +33,9 @@ class Solution {
         for (int i = max-min+1; i < max+min; i++) {
 			answer++;
 		}
-
+        System.out.println("5+2 ="+3+4);
+        
+        System.out.println("5+2 ="+(3+4));
         return answer;
     }
 }
