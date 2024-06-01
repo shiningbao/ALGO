@@ -1,7 +1,5 @@
 package ex10;
 
-import java.util.Arrays;
-
 public class Solution {
 
 	 public int[] solution(int[] num_list) {

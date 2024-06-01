@@ -1,7 +1,5 @@
 package ex09;
 
-import java.util.stream.IntStream;
-
 public class Solution {
 
 	 public double solution(int[] numbers) {
