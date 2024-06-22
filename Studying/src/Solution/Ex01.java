@@ -1,6 +1,6 @@
-package type;
+package Solution;
 
-public class Solution {
+public class Ex01 {
 
 	public static void main(String[] args) {
 		double epsilon = 1E-5;
